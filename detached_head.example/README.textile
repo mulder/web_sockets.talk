@@ -6,10 +6,10 @@ h1. Detached Head Example
 * Node.js
 * Redis
 
-# Used in your rack app
+_Used in your rack app_
 gem install juggernaut
 
-# Clone and run the juggernaut server
+_Clone and run the juggernaut server_
 git clone git://github.com/maccman/juggernaut.git --recursive
 cd juggernaut
 node server.js
