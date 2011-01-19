@@ -1,0 +1,7 @@
+{ "name": "Getting Started with WebSockets", 
+  "sections": [
+		{"section":"opening"},
+    {"section":"intro_to_websockets"},
+    {"section":"examples"}, 
+		{"section":"closing"}] 
+}

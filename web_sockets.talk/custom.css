@@ -1,0 +1,17 @@
+.title_slide .name {position: absolute; bottom: 50px; right: 10px; font-size: 1.8em; color: #666;}
+.title_slide .twitter {position: absolute; bottom: 30px; right: 10px; font-size: 1.2em; color: #666;}
+.title_slide .trb {position: absolute; top: 10px; left: 10px; font-size: 1.8em; color: #666;}
+
+.title_slide .connect_notes {position: absolute; bottom: 40px; left: 10px; font-size: 1.3em; color: #666;}
+
+
+code {font-size: .6em;}
+
+.left ul li {text-align: left;}
+li code {font-size: .5em;}
+
+#chat_demo #chat_window { width: 500px; height: 300px; border: 1px solid silver; padding: 5px; overflow: auto;}
+#chat_demo .chat_name { display: block; width: 250px; margin-bottom: 5px;}
+#chat_demo .chat_message { width: 500px; border: 1px solid silver; padding: 5px; color: #333;}
+#chat_demo .chat_message span { color: #999;}
+#chat_demo .self { color: #999;}
