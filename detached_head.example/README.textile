@@ -1,0 +1,31 @@
+h1. Detached Head Example
+
+*Requirements:*
+
+* jQuery
+* Node.js
+* Redis
+
+# Used in your rack app
+gem install juggernaut
+
+# Clone and run the juggernaut server
+git clone git://github.com/maccman/juggernaut.git --recursive
+cd juggernaut
+node server.js
+
+
+Use DetachedHeadMiddleWare in front of your rack (or rails) app.
+
+Load detached_head.js in your html page
+
+
+*Usage:*
+
+$(document).ready(function(){
+  DetachedHead.create('one', {target: '#detached'});
+});
+
+Send a url to a detached head from another browser
+
+DetachedHead.sendTo('one', 'http://localhost:3000/welcome/hello');
