@@ -1,0 +1,12 @@
+h1. Hello World WebSocket Example
+
+gem install em-websocket
+ruby ./hello_world.rb
+
+Open hello_world.html in your browser. If it supports WebSocket it should have the following in your console
+
+@
+connected...
+Hello Client!
+Pong: Hello Server!
+@

@@ -1,0 +1,16 @@
+<html>
+  <body>
+    <script>
+      
+
+      ws = new WebSocket("ws://0.0.0.0:8080/websocket");
+      ws.onmessage = function(evt) { console.log(evt.data); };
+      ws.onclose = function() { console.log("socket closed"); };
+      ws.onopen = function() {
+        console.log("connected...");
+        ws.send("Hello Server!");
+      };
+    
+    </script>
+  </body>
+</html>
