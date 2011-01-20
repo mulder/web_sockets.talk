@@ -1,0 +1,23 @@
+h1. WebSocket Chat Example
+
+A Rails project to demo a simple chat client using WebSockets and Juggernaut.
+
+*Requirements:*
+
+* jQuery
+* Rails
+* Node.js
+* Redis
+
+_Used in your rack app_
+gem install juggernaut
+
+_Clone and run the juggernaut server_
+git clone git://github.com/maccman/juggernaut.git --recursive
+cd juggernaut
+node server.js
+
+_Run the this rails project_
+./script/rails server
+
+Visit http://localhost:3000/chat

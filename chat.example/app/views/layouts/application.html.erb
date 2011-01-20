@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Juggernaut</title>
+  
+    <%= stylesheet_link_tag :all %>
+    <%= javascript_include_tag 'jquery.min', 'jquery.center', 'json', 'socket_io', 'juggernaut', 'detached_head', 'chat', 'application' %>
+    <%= csrf_meta_tag %>
+    
+    <style type="text/css" media="screen">
+      body {padding-top: 90px;}
+
+      h1 { position: relative; font-family: Georgia; font-size: 70px; line-height: 90px; text-shadow: -3px 0 4px #666; display: inline-block;}
+      h1 a:link, h1 a:visited, h1 a:hover, h1 a:active { position: absolute; top: 0;z-index: 2; color: #525252; text-align: center; 
+        -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); text-decoration: none;}
+      h1:after { content: attr(title); color: #000; text-shadow: 1px 1px 1px #666; display: inline-block;}
+
+      .content_border {background: rgba(0,0,0,0.1); padding: 10px; border-radius: 8px; width: 800px; margin: 90px auto 0px;}
+      .content_box {background: #fff; border-radius: 2px; padding: 15px;}
+
+      #chat_demo #chat_window { width: 760px; height: 300px; border: 1px solid silver; padding: 5px; overflow: auto;}
+      #chat_demo .chat_name { display: block; width: 250px; margin-bottom: 5px;}
+      #chat_demo .chat_message { width: 760px; border: 1px solid silver; padding: 5px; color: #333;}
+      #chat_demo .chat_message span { color: #999;}
+      #chat_demo .self { color: #999;}
+    
+    </style>
+  </head>
+
+<body>
+<%- unless params[:title] == 'hidden'  %>
+  <h1 class="title" title="<%= @title %>"><a href="#"><%= @title %></a></h1>
+<%- end %>
+<%= yield %>
+
+</body>
+</html>
