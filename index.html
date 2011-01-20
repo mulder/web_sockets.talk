@@ -1,0 +1,563 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Getting Started with WebSockets</title>
+
+  <link rel="stylesheet" href="./css/reset.css" type="text/css"/>
+  <link rel="stylesheet" href="./css/showoff.css" type="text/css"/>
+
+  <script type="text/javascript" src="./js/jquery-1.4.2.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.cycle.all.js"></script>
+	<script type="text/javascript" src="./js/jquery-print.js"></script>
+  <script type="text/javascript" src="./js/jquery.batchImageLoad.js"></script>
+
+  <script type="text/javascript" src="./js/jquery.doubletap-0.1.js"></script>
+
+  <script type="text/javascript" src="./js/fg.menu.js"></script>
+  <script type="text/javascript" src="./js/showoff.js"></script>
+  <script type="text/javascript" src="./js/jTypeWriter.js"> </script>
+  <script type="text/javascript" src="./js/sh_main.min.js"></script>
+  <script type="text/javascript" src="./js/core.js"></script>
+  <script type="text/javascript" src="./js/showoffcore.js"></script>
+
+  <link type="text/css" href="./css/fg.menu.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/theme/ui.all.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/sh_style.css" rel="stylesheet" >
+
+  
+    <link rel="stylesheet" href="file/custom.css" type="text/css"/>
+  
+
+  
+    <script type="text/javascript" src="file/1_juggernaut.js"></script>
+  
+
+  <script type="text/javascript">
+  $(function(){
+    setupPreso(false, './');
+  });
+  </script>
+</head>
+
+<body>
+
+
+<a tabindex="0" href="#search-engines" class="fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all" id="navmenu"><span class="ui-icon ui-icon-triangle-1-s"></span>slides</a>
+<div id="navigation" class="hidden"></div>
+
+<div id="help">
+  <table>
+    <tr><td class="key">space, &rarr;</td><td>next slide</td></tr>
+    <tr><td class="key">&larr;</td><td>previous slide</td></tr>
+    <tr><td class="key">d</td><td>debug mode</td></tr>
+    <tr><td class="key">## &lt;ret&gt;</td><td>go to slide #</td></tr>
+    <tr><td class="key">c</td><td>table of contents (vi)</td></tr>
+    <tr><td class="key">f</td><td>toggle footer</td></tr>
+    <tr><td class="key">r</td><td>reload slides</td></tr>
+    <tr><td class="key">z</td><td>toggle help (this)</td></tr>
+  </table>
+</div>
+
+<div id="preso">loading presentation...</div>
+<div id="footer">
+  <span id="slideInfo"></span>
+  <span id="debugInfo"></span>
+</div>
+
+<div id="slides" class="offscreen" style="display:none;">
+<div class="slide" data-transition="none"><div class="content" ref="opening/opening/1">
+<h2>Getting Started with</h2>
+
+<h1>WebSockets</h1>
+
+<div class="title_slide">
+    <div class="name">Nick Mulder</div>
+    <div class="twitter">t: nickmulder</div>
+    <div class="trb">TorontoRB</div>
+    <div class="connect_notes">
+        <a href="http://www.w3.org/html/logo/">
+        <img src="./file/opening/html5-connection.png" alt="HTML5"/>
+        </a>
+    </div>
+</div>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="opening/opening/2">
+<h1>Thanks to our sponsors!</h1>
+
+<p><img src="./file/opening/sponsors.jpg" alt="Sponsors"/></p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro_to_websockets/01_html5_spec">
+<h1>The WebSocket API Specification</h1>
+
+<h3><strong>Abstract:</strong> "This specification defines an API that enables Web pages to use the WebSocket protocol for two-way communication with a remote host"</h3>
+
+<p><em>Source: http://dev.w3.org/html5/websockets/</em></p>
+
+<div class="title_slide">
+    <div class="connect_notes">
+        <a href="http://www.w3.org/html/logo/">
+        <img src="./file/intro_to_websockets/../opening/html5-connection.png" alt="HTML5"/>
+        </a>
+    </div>
+</div>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="intro_to_websockets/02_good_vs_evil/1">
+<h1>WebSockets are not...</h1>
+
+<ul>
+<li>Magic</li>
+<li>A Silver Bullet</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="intro_to_websockets/02_good_vs_evil/2">
+<h1>What are they good for?</h1>
+
+<ul>
+<li>Cut down on on HTTP header traffic</li>
+<li>Reduce Latency</li>
+<li>Push!</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="intro_to_websockets/03_push_vs_poll/1">
+<h1>Push vs Poll</h1>
+
+<p class="notes">Think about a webpage that requires frequent updates; For example think about a page that provides current stock prices, or scores for sports games, or a live blog event.
+.notes With polling, the browser sends HTTP requests at regular intervals and immediately receives a response.
+.notes With Push via WebSockets the browser sets up the socket, then the server can send messages when ever it needs to.</p>
+
+<p><img src="./file/intro_to_websockets/blog.jpg" alt="messages"/>
+<em>Example taken from: http://soa.sys-con.com/node/1315473</em></p></div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="intro_to_websockets/03_push_vs_poll/2">
+<h1>Sample request/response header</h1>
+
+<pre class="sh_"><code>    GET /PollingStock//PollingStock HTTP/1.1
+    Host: localhost:8080
+    User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1.5) Gecko/20091102 Firefox/3.5.5
+    Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+    Accept-Language: en-us
+    Accept-Encoding: gzip,deflate
+    Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+    Keep-Alive: 300
+    Connection: keep-alive
+    Referer: http://www.example.com/PollingStock/
+    Cookie: showInheritedConstant=false; showInheritedProtectedConstant=false; 
+      showInheritedProperty=false; showInheritedProtectedProperty=false; 
+      showInheritedMethod=false; showInheritedProtectedMethod=false; s
+      howInheritedEvent=false; showInheritedStyle=false; showInheritedEffect=false
+
+
+    HTTP/1.x 200 OK
+    X-Powered-By: Servlet/2.5
+    Server: Sun Java System Application Server 9.1_02
+    Content-Type: text/html;charset=UTF-8
+    Content-Length: 21
+    Date: Sat, 07 Nov 2009 00:32:46 GMT</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content smbullets incremental left" ref="intro_to_websockets/03_push_vs_poll/3">
+<p class="notes">now consider taking this up to 100,000 req/sec; thats 665 Mbps for our polling overhead, and 1.52 Mbps for the push overhead</p>
+
+<h1>Cost of Polling</h1>
+
+<ul>
+<li>Push WebSocket has ~ 2 byte overhead per message!</li>
+<li><p>Polling Request/Response Header size ~ 871 bytes overhead per poll</p></li>
+<li><p/></li>
+<li><strong>Poll:</strong> <em>1000 clients polling 1 / second = 1000 * 871 = 871,000 bytes</em></li>
+<li><pre><code> 6,968,000 bits per second... 6.6 Mbps
+</code></pre></li>
+<li/>
+<li><strong>Push:</strong> <em>1000 clients receiving  1 / second = 1000 * 2 = 2,000 bytes</em></li>
+<li><pre><code> 16,000 bits per second! 0.015 Mbps
+</code></pre></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="intro_to_websockets/04_websocket_implemtation/1">
+<h1>WebSocket Interface</h1>
+
+<pre class="sh_javascript"><code>    [Constructor(in DOMString url, in optional DOMString protocols)]
+    [Constructor(in DOMString url, in optional DOMString[] protocols)]
+
+    interface WebSocket {
+        readonly attribute DOMString url;
+
+        // ready state
+        const unsigned short CONNECTING = 0;
+        const unsigned short OPEN = 1;
+        const unsigned short CLOSING = 2;
+        const unsigned short CLOSED = 3;
+        readonly attribute unsigned short readyState;
+        readonly attribute unsigned long bufferedAmount;
+
+        // networking
+                 attribute Function onopen;
+                 attribute Function onmessage;
+                 attribute Function onerror;
+                 attribute Function onclose;
+        readonly attribute DOMString protocol;
+        void send(in DOMString data);
+        void close();
+    };
+    WebSocket implements EventTarget;</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro_to_websockets/04_websocket_implemtation/2">
+<h1>WebSocket Interface</h1>
+
+<pre class="sh_ruby"><code>    [Constructor(in DOMString url, in optional DOMString protocols)]
+    [Constructor(in DOMString url, in optional DOMString[] protocols)]</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro_to_websockets/04_websocket_implemtation/3">
+<h1>WebSocket Interface</h1>
+
+<pre class="sh_javascript"><code>    readonly attribute DOMString url;</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro_to_websockets/04_websocket_implemtation/4">
+<h1>WebSocket Interface</h1>
+
+<pre class="sh_javascript"><code>    // ready state
+    const unsigned short CONNECTING = 0;
+    const unsigned short OPEN = 1;
+    const unsigned short CLOSING = 2;
+    const unsigned short CLOSED = 3;
+    readonly attribute unsigned short readyState;</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro_to_websockets/04_websocket_implemtation/5">
+<h1>WebSocket Interface</h1>
+
+<pre class="sh_javascript"><code>    // networking
+    attribute Function onopen;
+    attribute Function onmessage;
+    attribute Function onerror;
+    attribute Function onclose;</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro_to_websockets/04_websocket_implemtation/6">
+<h1>WebSocket Interface</h1>
+
+<pre class="sh_javascript"><code>    void send(in DOMString data);
+    void close();</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="intro_to_websockets/04_websocket_implemtation/7">
+<h1>WebSocket Interface</h1>
+
+<pre class="sh_javascript"><code>    [Constructor(in DOMString url, in optional DOMString protocols)]
+    [Constructor(in DOMString url, in optional DOMString[] protocols)]
+
+    interface WebSocket {
+      readonly attribute DOMString url;
+
+      // ready state
+      const unsigned short CONNECTING = 0;
+      const unsigned short OPEN = 1;
+      const unsigned short CLOSING = 2;
+      const unsigned short CLOSED = 3;
+      readonly attribute unsigned short readyState;
+      readonly attribute unsigned long bufferedAmount;
+
+      // networking
+               attribute Function onopen;
+               attribute Function onmessage;
+               attribute Function onerror;
+               attribute Function onclose;
+      readonly attribute DOMString protocol;
+      void send(in DOMString data);
+      void close();
+    };
+    WebSocket implements EventTarget;</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro_to_websockets/04_websocket_implemtation/8">
+<h1>EventTarget</h1>
+
+<pre class="sh_javascript"><code>    // Introduced in DOM Level 2:
+    interface EventTarget {
+      void    addEventListener(in DOMString type, 
+                               in EventListener listener, 
+                               in boolean useCapture);
+
+      void removeEventListener(in DOMString type, 
+                               in EventListener listener, 
+                               in boolean useCapture);
+
+      boolean    dispatchEvent(in Event evt)
+                               raises(EventException);
+    };</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="examples/01_hello_world/1">
+<h1>Hello World JS</h1>
+
+<pre class="sh_javascript"><code>
+    ws = new WebSocket("ws://0.0.0.0:8080/websocket");
+    ws.onmessage = function(evt) { console.log(evt.data); };
+    ws.onclose = function() { console.log("socket closed"); };
+    ws.onopen = function() {
+      console.log("connected...");
+      ws.send("Hello Server!");
+    };</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="examples/01_hello_world/2">
+<h1>Hello World Ruby</h1>
+
+<pre class="sh_ruby"><code>
+    require 'em-websocket'
+
+    EventMachine::WebSocket.start(:host =&gt; "0.0.0.0", :port =&gt; 8080) do |ws|
+      ws.onopen    { ws.send "Hello Client!"; }
+      ws.onmessage { |msg| ws.send "Pong: #{msg}"; }
+      ws.onclose   { puts "\nWebSocket closed" }
+    end
+
+    #Output in JS Console
+    connected...
+    Hello Client!
+    Pong: Hello Server!</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="examples/02_pusher/1">
+<h1>Pusher</h1>
+
+<p><img src="./file/examples/pusher.png" alt="Pusher"/></p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="examples/02_pusher/2">
+<h1>Pusher Example JS</h1>
+
+<pre class="sh_javascript"><code>    var pusher = new Pusher('API_KEY');
+    var myChannel = pusher.subscribe('MY_CHANNEL');
+
+    myChannel.bind('thing-create', function(thing) {
+      alert('A thing was created: ' + thing.name);
+    });</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="examples/02_pusher/3">
+<h1>Pusher Example Ruby</h1>
+
+<pre class="sh_ruby"><code>    require 'pusher'
+
+    Pusher.app_id = 'APP_ID'
+    Pusher.key = 'API_KEY'
+    Pusher.secret = 'SECRET_KEY'
+
+    class ThingsController &lt; ApplicationController
+      def create
+        @thing = Thing.new(params[:thing])
+
+        if @thing.save
+          Pusher['things'].trigger('thing-create', @thing.attributes)
+        end
+      end
+    end</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content smbullets incremental left" ref="examples/03_juggernaut/1">
+<h1>Juggernaut</h1>
+
+<ul>
+<li>https://github.com/maccman/juggernaut</li>
+<li>Juggernaut 2, which is a completely rewrite, is built on node.js</li>
+<li>It's insanely fast, and can scale horizontally to millions of clients</li>
+<li>Requirements: Node.js, Redis, Ruby</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="examples/03_juggernaut/2">
+<h1>Getting started with Juggernaut</h1>
+
+<pre class="sh_javascript"><code>
+    // Javascript
+    var jug = new Juggernaut;
+    jug.subscribe("channel_name", function(data){
+      console.log("Got data: " + data);
+    });
+
+
+    // Ruby
+    Juggernaut.publish("channel_name", {:some =&gt; "data"})
+    Juggernaut.publish(["channel1", "channel2"], "foo")</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="examples/04_chat_demo/1">
+<p><img src="./file/examples/chat.png" alt="Chat Demo"/></p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="examples/04_chat_demo/2">
+<h1>Chat ERB</h1>
+
+<pre class="sh_html"><code>
+    &lt;div id="chat_room" rel-channel-name="&lt;%= channel_name %&gt;" 
+                        rel-name="&lt;%= room_name %&gt;"&gt;
+
+       &lt;label for="chat_name"&gt;ScreenName:&lt;/label&gt;
+       &lt;input type="text" name="chat_name" class="chat_name" value=""/ &gt;
+
+       &lt;div id="chat_window"&gt;&lt;/div&gt;
+
+       &lt;textarea class="chat_message" name="chat_message"&gt;&lt;/textarea&gt;
+    &lt;/div&gt;   </code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="examples/04_chat_demo/3">
+<h1>Chat javascript</h1>
+
+<pre class="sh_javascript"><code>
+    $(document).ready(function(){
+        var channel_name = $('#chat_room').attr('rel-channel-name');
+
+        $('.chat_name').val('Guest' + Math.floor(Math.random()*1000));
+
+        juggernaut.subscribe(channel_name, receive);
+
+        $(document).bind('keypress', function(event){
+            if(event.which == 13) // Enter KeyPress
+                return send();
+        });
+    });</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="examples/04_chat_demo/4">
+<h1>Chat Send</h1>
+
+<pre class="sh_javascript"><code>
+    send = function(){
+        var payload = {room: $('#chat_room').attr('rel-name'), 
+                       from: $('.chat_name').val(), 
+                       msg: $('.chat_message').val()};
+
+        $.post('/chat/post', payload);
+
+        $('.chat_message').val('');
+
+        return false;
+    };</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="examples/04_chat_demo/5">
+<h1>Chat Receive</h1>
+
+<pre class="sh_javascript"><code>
+receive = function(data){
+    data = JSON.parse(data);
+
+    msg = $('&lt;div&gt;');
+    msg.append('&lt;span&gt;'+data['from']+' @ '+data['time']+': &lt;/span&gt;');
+    msg.append(data['msg']);
+
+    if(data['from'] === $('.chat_name').val())
+        msg.addClass('self');
+
+    $('#chat_window').append(msg).scrollTop($('#chat_window').height());
+};</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="examples/04_chat_demo/6">
+<h1>Routes</h1>
+
+<pre class="sh_ruby"><code>
+    match 'chat/post' =&gt; 'chat#post', :method =&gt; :post
+    match 'chat(/:room)' =&gt; 'chat#index', :method =&gt; :get</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="examples/04_chat_demo/7">
+<h1>Chat Controller</h1>
+
+<pre class="sh_ruby"><code>    class ChatController &lt; ApplicationController
+        helper_method :channel_name, :room_name
+
+        def index
+            @title = "#{room_name} Chat Room"
+        end
+
+        def post
+            ...
+        end
+
+    private
+        def channel_name
+            "#{room_name}-chat-room"
+        end
+        def room_name
+            params[:room] || 'Juggernaut'
+        end
+    end</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="examples/04_chat_demo/8">
+<h1>Chat post action</h1>
+
+<pre class="sh_ruby"><code>
+    def post
+        payload = {:from =&gt; params[:from],
+                   :time =&gt; Time.now.strftime("%H:%M"),
+                   :msg =&gt; params[:msg]}
+
+        Juggernaut.publish(channel_name, payload.to_json)
+        render :text =&gt; 'ok'
+    end</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content smbullets incremental" ref="examples/05_detached_head/1">
+<h2>Now try to go off in this direction</h2>
+
+<br/>
+
+
+<ul>
+<li>What if we wanted to hijack a click event (or touch event)</li>
+<li>and send the response to another browser...</li>
+<li>on another computer...</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="examples/05_detached_head/2">
+<h1>Consider this constructor</h1>
+
+<pre class="sh_javascript"><code>    var DetachedHead = function(name, options){
+      this.juggernaut = new Juggernaut();
+
+      this.channelName = 'display-' + name;
+
+      this.target = $('body');
+
+      var dh = this;
+      this.juggernaut.subscribe(this.channelName, function(data){
+        dh.loadView(data);
+      });
+    };</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="examples/05_detached_head/3">
+<h1>Instance Methods</h1>
+
+<pre class="sh_javascript"><code>    $.extend(DetachedHead.prototype, {
+      loadView: function(data){
+        this.target.html(data);
+      },
+
+      destroy: function(){
+        this.juggernaut.unsubscribe(this.channelName);
+      }
+    });</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="examples/05_detached_head/4">
+<h2>Middleware to the rescue</h2>
+
+<pre class="sh_ruby"><code>    require 'rack/utils'
+    require 'juggernaut'
+
+    class DetachedHeadMiddleware  
+      def initialize(app)
+        @app = app
+      end
+
+      def call(env)   
+        status, headers, response = @app.call(env)
+
+        if env["HTTP_SENDTODETACHED"]
+          Juggernaut.publish(env["HTTP_SENDTODETACHED"], response.body)
+
+          [200, {}, ['Ok']]
+        else
+          [status, headers, response]
+        end
+      end
+    end</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="examples/05_detached_head/5">
+<h1>Class Methods</h1>
+
+<pre class="sh_javascript"><code>
+$.extend(DetachedHead, {
+  sendTo: function(name, target_url){
+    $.ajax({
+       type : "GET",
+       url: target_url,
+       beforeSend: function(xhr){
+         xhr.setRequestHeader('SendToDetached', 'display-' + name);
+       }
+     });
+  }
+});</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="examples/05_detached_head/6">
+<h1>Usage</h1>
+
+<pre class="sh_javascript"><code>    // In one browser
+    dh = new DetachedHead('main');
+
+    // In another browser
+    DetachedHead.sendTo('main', '/chat');</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content bullets left" ref="closing/01_references/1">
+<h1>References</h1>
+
+<ul>
+<li>http://dev.w3.org/html5/websockets</li>
+<li>http://soa.sys-con.com/node/1315473</li>
+<li>https://github.com/igrigorik/em-websocket</li>
+<li>http://pusherapp.com</li>
+<li>https://github.com/maccman/juggernaut</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="closing/01_references/2">
+<h1>Thanks</h1></div>
+</div>
+</div>
+
+</body>
+</html>
