@@ -1,0 +1,11 @@
+h1. Getting started with WebSockets
+
+This talk was given at TorontoRb on January 11th, 2010 by Nick Mulder.  
+
+h3. References
+
+* http://dev.w3.org/html5/websockets
+* http://soa.sys-con.com/node/1315473
+* https://github.com/igrigorik/em-websocket
+* http://pusherapp.com
+* https://github.com/maccman/juggernaut
