@@ -2,6 +2,10 @@ h1. Getting started with WebSockets
 
 This talk was given at TorontoRb on January 11th, 2010 by Nick Mulder.  
 
+Here is a html version of the talk: http://mulder.github.com/web_sockets.talk
+
+You can run it yourself with "showoff":https://github.com/schacon/showoff.
+
 h3. References
 
 * "http://dev.w3.org/html5/websockets":http://dev.w3.org/html5/websockets
